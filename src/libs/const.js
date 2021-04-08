@@ -1,0 +1,65 @@
+module.exports = {
+  commands: {
+    TOPUPCOMING_C: "/topupcoming",
+    TOPAIRING_C: "/topairing",
+    TOPMOVIE_C: "/topmovie",
+    TOPTV_C: "/toptv",
+    TOPOVA_C: "/topova",
+    TOPSPECIAL_C: "/topspecial",
+    FAVORITES_C: "/favorites",
+    SEARCH_C: "/search",
+    ANIME_C: "/anime_",
+    START_C: "/start",
+    TRAILER_C: "/trailer_",
+    ALLSYNOPSIS_C: "/allSynopsis_",
+    HELP_C: "/help",
+    STOP_C: "/stop",
+    EMPTY_C: "/empty_favorites",
+    WATCH_C: "/watch",
+    CANAL_LINK_C: "/canallink",
+    SHOW_FEEDBACKS_C: "/showfeedbacks",
+  },
+  msg: {
+    DONE_MSG: "Done 👌",
+    FAVORITE_TITLE_MSG: "\n\n🗑 /empty_favorites",
+    EMPTY_FAVORITES_MSG: "You haven't saved a favorites 🌵",
+    NO_TRAILER_MSG: "No trailer found 🌵",
+    NO_ANIME_MSG: "No anime found 🌵",
+    NO_UNDERSTAND_MSG: "Sorry 🙁, can’t understand your command.\nDo you need /help❔",
+    WAIT_MSG: "Please wait... 🕐",
+    FEEDBACK_MSG: "Was I useful to you❔",
+    WATCH_EMPTY_NAME_MSG:
+      "Please specify a longer name after <code>/watch</code> command\ne.g : <code>/watch</code> dragon ball",
+    NO_FEEDBACKS: "No feedbacks",
+    TRY_AGAIN: "Try again",
+    NOT_YET_REGISTERED_MSG: "You are not yet registered. /start",
+    ARE_SURE_LEAVE: "Are you sure you want to leave me? 😢",
+    SYNOPSIS_MSG: (details) =>
+      `<u>Title</u> : <b>${details.title}</b>\n<u>Synopsis</u> : <b>${details.synopsis}</b>`,
+    FEEDBACKS_MSG: (weary, neuter, star_struck) => `😩: ${weary}%
+😐: ${neuter}%
+🤩: ${star_struck}%
+          `,
+  },
+  callBackQueryType: {
+    FEEDBACK_T: "feedback",
+    SHOW_MORE_T: "showMore",
+    SHOW_LESS_T: "showLess",
+    FAVORITE_T: "favorite",
+    RM_FAVORITE_T: "removeFavorite",
+    CONFIRM_STOP_T: "confirm",
+    NO_SHOW_AGAIN_T: "noShowAgain",
+  },
+  keyWords: {
+    UPCOMING_KW: ["come", "coming"],
+    AIRING_KW: ["airing"],
+    MOVIE_KW: ["movie", "film"],
+    TV_KW: ["tv"],
+    OVA_KW: ["ova"],
+    SPECIAL_KW: ["special"],
+    HELLO_KW: ["hello", "hi", "how are", "good", "charo"],
+  },
+  sticker: {
+    LOADER_S: "CAACAgQAAxkBAAIBIWBn9soDeWFFkcxPMpAgRpVJdGvSAALUAgACcnEXJVQhiQMcUCh8HgQ",
+  },
+};

@@ -1,0 +1,1 @@
+worker: nodemon src/app.js
