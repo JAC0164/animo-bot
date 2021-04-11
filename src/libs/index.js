@@ -119,7 +119,6 @@ const commandsList = () => {
   return `🌿 Here is the list of available commands 🌿\n\n☘️ Simple commands \n  <code>${cmd.TOPUPCOMING_C}</code> - top upcoming on MyAnimeList \n  <code>${cmd.TOPAIRING_C}</code> - top tv on MyAnimeList \n  <code>${cmd.TOPMOVIE_C}</code> - top movie on MyAnimeList \n  <code>${cmd.TOPTV_C}</code> - top tv on MyAnimeList \n  <code>${cmd.TOPOVA_C}</code> - top ova on MyAnimeList \n  <code>${cmd.TOPSPECIAL_C}</code> - top special on MyAnimeList
   \n🍀 Advanced commands
   <code>/search</code> <code>name</code> - search an anime by name
-  <code>/watch</code> <code>name</code> - watch an anime
   <code>${cmd.TOPUPCOMING_C}</code> <code>x</code> - x is the number of result (max <code>50</code>) \n  <code>${cmd.TOPAIRING_C}</code> <code>x</code> - x is the number of result (max <code>50</code>) \n  <code>${cmd.TOPMOVIE_C}</code> <code>x</code> - x is the number of result (max <code>50</code>) \n  <code>${cmd.TOPTV_C}</code> <code>x</code> - x is the number of result (max <code>50</code>) \n  <code>${cmd.TOPOVA_C}</code> <code>x</code> - x is the number of result (max <code>50</code>) \n  <code>${cmd.TOPSPECIAL_C}</code> <code>x</code> - x is the number of result (max <code>50</code>)
    `;
 };
