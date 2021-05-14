@@ -36,19 +36,17 @@
 <code>/stop</code> - delete your data from the animo server<br/>
 
 ### Advanced commands
-<code>/search</code> + <code>name</code> - Search an anime on MyAnimeList<br/>
-<code>/watch</code> + <code>name</code> - Watch an anime<br/>
+<code>/search</code> + <code>N</code> - Search an anime on MyAnimeList<br/>
+<code>/topupcoming</code> + <code>X</code> - Top upcoming on MyAnimeList <br/>
+<code>/topairing</code> + <code>X</code> - Top tv on MyAnimeList <br/>
+<code>/topmovie</code> + <code>X</code> - Top movie on MyAnimeList <br/>
+<code>/toptv</code> + <code>X</code> - Top tv on MyAnimeList <br/>
+<code>/topova</code> + <code>X</code> - Top ova on MyAnimeList  <br/>
+<code>/topspecial</code> + <code>X</code> - Top special on MyAnimeList <br/>
 
-#### <code>n</code> is the number of results returned
+#### <code>X</code> : the number of results
 
-<code>/topupcoming</code> + <code>n</code> - Top upcoming on MyAnimeList <br/>
-<code>/topairing</code> + <code>n</code> - Top tv on MyAnimeList <br/>
-<code>/topmovie</code> + <code>n</code> - Top movie on MyAnimeList <br/>
-<code>/toptv</code> + <code>n</code> - Top tv on MyAnimeList <br/>
-<code>/topova</code> + <code>n</code> - Top ova on MyAnimeList  <br/>
-<code>/topspecial</code> + <code>n</code> - Top special on MyAnimeList <br/>
-
-
+#### <code>N</code> : anime name to search
 
 ## How To Use
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:

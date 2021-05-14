@@ -8,13 +8,13 @@ module.exports = {
     TOPSPECIAL_C: "/topspecial",
     FAVORITES_C: "/favorites",
     SEARCH_C: "/search",
-    ANIME_C: "/anime_",
+    ANIME_C: "/anime",
     START_C: "/start",
-    TRAILER_C: "/trailer_",
-    ALLSYNOPSIS_C: "/allSynopsis_",
+    TRAILER_C: "/trailer",
+    ALL_SYNOPSIS_C: "/allsynopsis",
     HELP_C: "/help",
     STOP_C: "/stop",
-    EMPTY_C: "/empty_favorites",
+    EMPTY_C: "/empty",
     WATCH_C: "/watch",
     CANAL_LINK_C: "/canallink",
     SHOW_FEEDBACKS_C: "/showfeedbacks",
@@ -34,11 +34,13 @@ module.exports = {
     TRY_AGAIN: "Try again",
     NOT_YET_REGISTERED_MSG: "You are not yet registered. /start",
     ARE_SURE_LEAVE: "Are you sure you want to leave me? 😢",
+    SEARCH_ERROR: "Oops 🙁, please state the name of the anime. /help",
+    ASTUTE: "Astute : Use param for limit result number. /help",
     SYNOPSIS_MSG: (details) =>
       `<u>Title</u> : <b>${details.title}</b>\n<u>Synopsis</u> : <b>${details.synopsis}</b>`,
-    FEEDBACKS_MSG: (weary, neuter, star_struck) => `😩: ${weary}%
+    FEEDBACKS_MSG: (weary, neuter, starStruck) => `😩: ${weary}%
 😐: ${neuter}%
-🤩: ${star_struck}%
+🤩: ${starStruck}%
           `,
   },
   callBackQueryType: {
@@ -46,20 +48,19 @@ module.exports = {
     SHOW_MORE_T: "showMore",
     SHOW_LESS_T: "showLess",
     FAVORITE_T: "favorite",
-    RM_FAVORITE_T: "removeFavorite",
+    RM_FAVORITE_T: "deleteFavorite",
     CONFIRM_STOP_T: "confirm",
     NO_SHOW_AGAIN_T: "noShowAgain",
   },
-  keyWords: {
-    UPCOMING_KW: ["come", "coming"],
-    AIRING_KW: ["airing"],
-    MOVIE_KW: ["movie", "film"],
-    TV_KW: ["tv"],
-    OVA_KW: ["ova"],
-    SPECIAL_KW: ["special"],
-    HELLO_KW: ["hello", "hi", "how are", "good", "charo"],
+  subType: {
+    upComing: "upcoming",
+    airing: "airing",
+    movie: "movie",
+    tv: "tv",
+    ova: "ova",
+    special: "special",
   },
   sticker: {
-    LOADER_S: "CAACAgQAAxkBAAIBIWBn9soDeWFFkcxPMpAgRpVJdGvSAALUAgACcnEXJVQhiQMcUCh8HgQ",
+    quote: "CAACAgUAAxkBAAITc2CeoEv9KYJBw4M8edJI5yBqrWk5AAJuAAPXxiUN8orn6c1IXKIfBA",
   },
 };
