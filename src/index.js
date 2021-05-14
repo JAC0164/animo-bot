@@ -95,9 +95,8 @@ bot.onText(/\/trailer/i, async (msg) => {
 
 bot.onText(/\/search/i, async (msg) => {
   Send.sendSearch(bot, msg).catch((err) => {
-    console.log(err);
+   bot.sendMessage(msg.chat.id, "Error !");
   });
-  bot.sendMessage(msg.chat.id, "Error !");
 });
 
 /**
