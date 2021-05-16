@@ -250,10 +250,14 @@ class Send {
    * @param {TelegramBot.Message} msg
    */
   static async sendWallpaper(bot, msg) {
-    const param = msg.text.trim().split(" ")[1];
+    const param = msg.text.trim().toLowerCase().split(" ")[1];
+    const params = msg.text.trim().toLowerCase().split(" ");
+    delete params[0];
     if (param?.length > 2) {
       const allWallpapers = await WallpaperSchema.find({});
-      const wallpapers = allWallpapers.filter((w) => w.caption.search(param) !== -1);
+      const wallpapers = allWallpapers.filter(
+        (w) => w.caption.toLowerCase().trim().search(params.join(" ").trim()) !== -1
+      );
       if (wallpapers.length === 0) {
         return bot.sendMessage(msg.chat.id, "No results 🌵");
       }
