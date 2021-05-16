@@ -30,6 +30,7 @@
 <code>/toptv</code> - Top tv on MyAnimeList <br/>
 <code>/topova</code> - Top ova on MyAnimeList  <br/>
 <code>/topspecial</code> - Top special on MyAnimeList <br/>
+<code>/randomwallpaper</code> - random anime wallpaper <br/> 
 <code>/favorites</code> - The list of your all favorite<br/>
 <code>/empty_favorites</code> - Empty the list of favorites <br/>
 <code>/help</code> - The list of all commands<br/>
@@ -37,6 +38,7 @@
 
 ### Advanced commands
 <code>/search</code> + <code>N</code> - Search an anime on MyAnimeList<br/>
+<code>/wallpaper</code> + <code>N</code> - search anime wallpaper <br/> 
 <code>/topupcoming</code> + <code>X</code> - Top upcoming on MyAnimeList <br/>
 <code>/topairing</code> + <code>X</code> - Top tv on MyAnimeList <br/>
 <code>/topmovie</code> + <code>X</code> - Top movie on MyAnimeList <br/>

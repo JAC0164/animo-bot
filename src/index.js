@@ -4,6 +4,7 @@ const TelegramBot = require("node-telegram-bot-api");
 const Favorite = require("./class/Favorite");
 const Send = require("./class/Send");
 const General = require("./class/General");
+const Channel = require("./class/Channel");
 const CallbackQuery = require("./class/CallbackQuery");
 const Notify = require("./class/Notify");
 const cst = require("./libs/const");
@@ -94,9 +95,15 @@ bot.onText(/\/trailer/i, async (msg) => {
 });
 
 bot.onText(/\/search/i, async (msg) => {
-  Send.sendSearch(bot, msg).catch((err) => {
-   bot.sendMessage(msg.chat.id, "Error !");
-  });
+  Send.sendSearch(bot, msg).catch(() => bot.sendMessage(msg.chat.id, "Error !"));
+});
+
+bot.onText(/\/randomWallpaper/i, async (msg) => {
+  Send.sendRandomWallpaper(bot, msg).catch(() => bot.sendMessage(msg.chat.id, "Error !"));
+});
+
+bot.onText(/\/wallpaper/i, async (msg) => {
+  Send.sendWallpaper(bot, msg).catch(() => bot.sendMessage(msg.chat.id, "Error !"));
 });
 
 /**
@@ -170,6 +177,30 @@ bot.on("callback_query", async (query) => {
     CallbackQuery.advancedCmgIsUsed(query.message)
       .then(() => bot.deleteMessage(query.message.chat.id, query.message.message_id))
       .catch(() => bot.sendMessage(query.message.chat.id, "Error !"));
+  }
+});
+
+/**
+ * Channels post
+ */
+bot.on("channel_post", async (msg) => {
+  /**
+   * Anime wallpapers
+   */
+  if (msg.chat.title === "Anime wallpapers") {
+    Channel.saveAwPost(bot, msg);
+  }
+});
+
+/**
+ * Edit channels post
+ */
+bot.on("edited_channel_post", async (msg) => {
+  /**
+   * Anime wallpapers
+   */
+  if (msg.chat.title === "Anime wallpapers" && msg.photo && msg.caption) {
+    Channel.updateAwPost(bot, msg);
   }
 });
 

@@ -1,4 +1,5 @@
 const UserSchema = require("../models/user.model");
+const WallpaperSchema = require("../models/wallpapers.model");
 const Fetch = require("./Fetch");
 const General = require("./General");
 const Favorite = require("./Favorite");
@@ -221,6 +222,50 @@ class Send {
           inline_keyboard: InlineKeyboard.showMore(anm.url, anm.mal_id, favorite),
         },
       });
+    }
+  }
+
+  /**
+   * Random wallpaper
+   *
+   * @param {TelegramBot} bot
+   * @param {TelegramBot.Message} msg
+   */
+  static async sendRandomWallpaper(bot, msg) {
+    const wallpapers = await WallpaperSchema.find({});
+    const index = Math.floor(Math.random() * wallpapers.length);
+    const wallpaper = wallpapers[index];
+    if (wallpaper) {
+      bot.sendPhoto(msg.chat.id, wallpaper.fileId, {
+        caption: wallpaper.caption,
+        parse_mode: "HTML",
+      });
+    }
+  }
+
+  /**
+   * search wallpaper
+   *
+   * @param {TelegramBot} bot
+   * @param {TelegramBot.Message} msg
+   */
+  static async sendWallpaper(bot, msg) {
+    const param = msg.text.trim().split(" ")[1];
+    if (param?.length > 2) {
+      const allWallpapers = await WallpaperSchema.find({});
+      const wallpapers = allWallpapers.filter((w) => w.caption.search(param) !== -1);
+      if (wallpapers.length === 0) {
+        return bot.sendMessage(msg.chat.id, "No results 🌵");
+      }
+      for (let i = 0; i < wallpapers.length; i++) {
+        const w = wallpapers[i];
+        bot.sendPhoto(msg.chat.id, w.fileId, {
+          caption: w.caption,
+          parse_mode: "HTML",
+        });
+      }
+    } else {
+      bot.sendMessage(msg.chat.id, "too short name ! /help");
     }
   }
 }

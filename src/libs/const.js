@@ -18,6 +18,8 @@ module.exports = {
     WATCH_C: "/watch",
     CANAL_LINK_C: "/canallink",
     SHOW_FEEDBACKS_C: "/showfeedbacks",
+    WALLPAPER_C: "/wallpaper",
+    RANDOM_WALLPAPERS_C: "/randomwallpaper",
   },
   msg: {
     DONE_MSG: "Done 👌",

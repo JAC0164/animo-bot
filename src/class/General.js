@@ -12,13 +12,32 @@ const message = cst.msg;
  * @returns string
  */
 const commandsList = () => {
-  return `🌿 Here is the list of available commands 🌿\n\n☘️ Simple commands \n  ${cmd.TOPUPCOMING_C} - top anime upcoming \n  ${cmd.TOPAIRING_C} - top anime tv \n  ${cmd.TOPMOVIE_C} - top anime movie \n  ${cmd.TOPTV_C} - top anime tv \n  ${cmd.TOPOVA_C} - top anime ova \n  ${cmd.TOPSPECIAL_C} - top anime special
-  \n🍀 Advanced commands
-  /search N
-  ${cmd.TOPUPCOMING_C} X \n  ${cmd.TOPAIRING_C} X \n  ${cmd.TOPMOVIE_C} X \n  ${cmd.TOPTV_C} X \n  ${cmd.TOPOVA_C} X \n  ${cmd.TOPSPECIAL_C} X
-  \nX : number of results (max 50)
+  const commandList = `
+🌿 Here is the list of available commands 🌿
+\n☘️ Simple commands 
+${cmd.TOPUPCOMING_C} - top anime upcoming 
+${cmd.TOPAIRING_C} - top anime tv 
+${cmd.TOPMOVIE_C} - top anime movie 
+${cmd.TOPTV_C} - top anime tv 
+${cmd.TOPOVA_C} - top anime ova
+${cmd.TOPSPECIAL_C} - top anime special 
+${cmd.RANDOM_WALLPAPERS_C} - random anime wallpaper
+
+🍀 Advanced commands
+${cmd.SEARCH_C} N - search anime
+${cmd.WALLPAPER_C} N - search anime wallpaper
+${cmd.TOPUPCOMING_C} X 
+${cmd.TOPAIRING_C} X 
+${cmd.TOPMOVIE_C} X 
+${cmd.TOPTV_C} X 
+${cmd.TOPOVA_C} X 
+${cmd.TOPSPECIAL_C} X
+
+
+X : number of results (max 50)
 N : anime name to search
   `;
+  return commandList;
 };
 
 /**
