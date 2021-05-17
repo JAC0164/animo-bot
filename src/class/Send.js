@@ -251,12 +251,12 @@ class Send {
    */
   static async sendWallpaper(bot, msg) {
     const param = msg.text.trim().toLowerCase().split(" ")[1];
-    const params = msg.text.trim().toLowerCase().split(" ");
-    delete params[0];
+    const params = msg.text.trim().toLowerCase().split(" ").slice(1);
     if (param?.length > 2) {
       const allWallpapers = await WallpaperSchema.find({});
+      console.log(allWallpapers, params.join("_"));
       const wallpapers = allWallpapers.filter(
-        (w) => w.caption.toLowerCase().trim().search(params.join(" ").trim()) !== -1
+        (w) => w.caption.toLowerCase().trim().search(params.join("_").trim()) !== -1
       );
       if (wallpapers.length === 0) {
         return bot.sendMessage(msg.chat.id, "No results 🌵");
