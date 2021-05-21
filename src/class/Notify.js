@@ -6,7 +6,7 @@ const sticker = require("../libs/const").sticker;
  *  Notify
  */
 class Notify {
-  quoteIntervalTime = 1000 * 60 * 60 * 5; // 5h
+  quoteIntervalTime = 1000 * 60 * 60 * 12; // 12h
   quoteInterval;
   constructor(bot) {
     this.bot = bot;
