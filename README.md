@@ -30,11 +30,9 @@
 <code>/toptv</code> - Top tv on MyAnimeList <br/>
 <code>/topova</code> - Top ova on MyAnimeList  <br/>
 <code>/topspecial</code> - Top special on MyAnimeList <br/>
-<code>/randomwallpaper</code> - random anime wallpaper <br/> 
+<code>/randomwallpaper</code> - Random anime wallpaper <br/> 
 <code>/favorites</code> - The list of your all favorite<br/>
-<code>/empty_favorites</code> - Empty the list of favorites <br/>
-<code>/help</code> - The list of all commands<br/>
-<code>/stop</code> - delete your data from the animo server<br/>
+<code>/stop</code> - Delete your data from the animo server<br/>
 
 ### Advanced commands
 <code>/search</code> + <code>N</code> - Search an anime on MyAnimeList<br/>
