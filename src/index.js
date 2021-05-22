@@ -35,6 +35,12 @@ if (process.env.NODE_ENV === "development") {
     bot.processUpdate(req.body);
     res.sendStatus(200);
   });
+  app.get("/", (req, res) => {
+    res.status(200).send("OK");
+  });
+  app.get("*", (req, res) => {
+    res.status(404).send("error !");
+  });
   app.listen(process.env.PORT, () => {
     console.log(`Express server is listening on ${process.env.PORT}`);
   });
