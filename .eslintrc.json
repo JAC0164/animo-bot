@@ -10,7 +10,7 @@
     "ecmaVersion": 12
   },
   "rules": {
-    "quotes": [1, "double", { "avoidEscape": true }],
+    "quotes": [1, "single", { "avoidEscape": true }],
     "semi": [1, "always"],
     "comma-dangle": [0],
     "space-before-function-paren": "off"
