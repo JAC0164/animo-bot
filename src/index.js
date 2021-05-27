@@ -32,7 +32,6 @@ if (process.env.NODE_ENV === 'development') {
   notify = new Notify(bot);
   const app = express();
   app.use(express.json());
-  bot.deleteWebHook();
   bot.setWebHook(`${process.env.URL}:443/bot${process.env.TOKEN}`);
   app.use(express.static(path.join(__dirname, './assets')));
   app.set('views', path.join(__dirname, './views'));
