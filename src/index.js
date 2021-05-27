@@ -42,6 +42,10 @@ if (process.env.NODE_ENV === 'development') {
       .replace(/\.\/src\/assets\//g, '');
     res.render('index', { markdown });
   });
+  app.post(`/bot${process.env.TOKEN}`, (req, res) => {
+    bot.processUpdate(req.body);
+    res.sendStatus(200);
+  });
   app.get('*', (req, res) => {
     res.status(404).send('error !');
   });
