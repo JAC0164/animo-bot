@@ -1,5 +1,6 @@
 require("dotenv").config();
 require("./config/db");
+const fs = require("fs");
 const TelegramBot = require("node-telegram-bot-api");
 const Favorite = require("./class/Favorite");
 const Send = require("./class/Send");
@@ -8,6 +9,7 @@ const Channel = require("./class/Channel");
 const CallbackQuery = require("./class/CallbackQuery");
 const Notify = require("./class/Notify");
 const cst = require("./libs/const");
+const path = require("path");
 const cmd = cst.commands;
 const subType = cst.subType;
 const message = cst.msg;
@@ -31,12 +33,14 @@ if (process.env.NODE_ENV === "development") {
   const app = express();
   app.use(express.json());
   bot.setWebHook(`${process.env.URL}:443/bot${process.env.TOKEN}`);
-  app.post(`/bot${process.env.TOKEN}`, (req, res) => {
-    bot.processUpdate(req.body);
-    res.sendStatus(200);
-  });
+  app.use(express.static("./assets"));
+  app.set("views", path.join(__dirname, "./views"));
+  app.set("view engine", "ejs");
   app.get("/", (req, res) => {
-    res.status(200).send("OK");
+    const markdown = fs
+      .readFileSync("../README.md", { encoding: "utf8" })
+      .replace(/\.\/src\/assets\//g, "");
+    res.render("index", { markdown });
   });
   app.get("*", (req, res) => {
     res.status(404).send("error !");
