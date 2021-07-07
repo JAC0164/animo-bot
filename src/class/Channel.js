@@ -40,22 +40,18 @@ class Channel {
     let msgHistory = null;
     if ('photo' in msg) {
       msgHistory = await bot.sendPhoto(process.env.ANIMO_CHANNEL_ID, msg.photo[0].file_id, {
-        parse_mode: 'MarkdownV2',
         caption: 'caption' in msg ? msg.caption : '',
       });
     } else if ('video' in msg) {
       msgHistory = await bot.sendVideo(process.env.ANIMO_CHANNEL_ID, msg.video.file_id, {
-        parse_mode: 'MarkdownV2',
         caption: 'caption' in msg ? msg.caption : '',
       });
     } else if ('document' in msg) {
       msgHistory = await bot.sendDocument(process.env.ANIMO_CHANNEL_ID, msg.document.file_id, {
-        parse_mode: 'MarkdownV2',
         caption: 'caption' in msg ? msg.caption : '',
       });
     } else if ('text' in msg) {
       msgHistory = await bot.sendMessage(process.env.ANIMO_CHANNEL_ID, msg.text, {
-        parse_mode: 'MarkdownV2',
         caption: 'caption' in msg ? msg.caption : '',
       });
     }
