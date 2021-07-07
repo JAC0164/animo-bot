@@ -60,9 +60,10 @@ notify.start();
  *  Top Anime
  */
 bot.onText(/\/topUpcoming/i, (msg) => {
-  Send.sendTopAnime(bot, msg, subType.upComing).catch(() =>
-    bot.sendMessage(msg.chat.id, 'Error !')
-  );
+  Send.sendTopAnime(bot, msg, subType.upComing).catch((err) => {
+    console.log(err);
+    bot.sendMessage(msg.chat.id, 'Error !');
+  });
 });
 
 bot.onText(/\/topAiring/i, (msg) => {
@@ -82,9 +83,7 @@ bot.onText(/\/topTv/i, (msg) => {
 });
 
 bot.onText(/\/topOva/i, (msg) => {
-  Send.sendTopAnime(bot, msg, subType.ova).catch(() =>
-    bot.sendMessage(msg.chat.id, 'Error !')
-  );
+  Send.sendTopAnime(bot, msg, subType.ova).catch(() => bot.sendMessage(msg.chat.id, 'Error !'));
 });
 
 bot.onText(/\/topSpecial/i, (msg) => {
@@ -97,7 +96,10 @@ bot.onText(/\/topSpecial/i, (msg) => {
  * Anime
  */
 bot.onText(/\/anime/i, async (msg) => {
-  Send.sendAnime(bot, msg).catch(() => bot.sendMessage(msg.chat.id, 'Error !'));
+  Send.sendAnime(bot, msg).catch((err) => {
+    console.log(err);
+    bot.sendMessage(msg.chat.id, 'Error !');
+  });
 });
 
 bot.onText(/\/allSynopsis/i, async (msg) => {
@@ -161,9 +163,10 @@ bot.on('callback_query', async (query) => {
     data.type === callBackQueryType.SHOW_MORE_T ||
     data.type === callBackQueryType.SHOW_LESS_T
   ) {
-    CallbackQuery.toggleDetails(bot, query).catch(() =>
-      bot.sendMessage(query.message.chat.id, 'Error !')
-    );
+    CallbackQuery.toggleDetails(bot, query).catch((err) => {
+      console.log(err);
+      bot.sendMessage(query.message.chat.id, 'Error !');
+    });
   } else if (data.type === callBackQueryType.FAVORITE_T) {
     CallbackQuery.toggleFavorite(bot, query).catch(() =>
       bot.sendMessage(query.message.chat.id, 'Error !')
@@ -191,6 +194,8 @@ bot.on('callback_query', async (query) => {
     CallbackQuery.advancedCmgIsUsed(query.message)
       .then(() => bot.deleteMessage(query.message.chat.id, query.message.message_id))
       .catch(() => bot.sendMessage(query.message.chat.id, 'Error !'));
+  } else if (data.type === 'pagination') {
+    CallbackQuery.pagination(bot, query.message, data);
   }
 });
 
@@ -201,8 +206,14 @@ bot.on('channel_post', async (msg) => {
   /**
    * Anime wallpapers
    */
-  if (msg.chat.title === 'Anime wallpapers') {
+  if (msg.chat.title === process.env.WALLPAPER_CHANNEL) {
     Channel.saveAwPost(bot, msg);
+  }
+  if (msg.chat.title === process.env.FORWARDED_CHANNEL) {
+    Channel.forwardPost(bot, msg).catch((err) => {
+      console.log(err);
+      bot.sendMessage(msg.chat.id, 'Error !');
+    });
   }
 });
 

@@ -1,4 +1,4 @@
-const cst = require("./const");
+const cst = require('./const');
 const callBackQueryType = cst.callBackQueryType;
 
 module.exports = {
@@ -6,11 +6,11 @@ module.exports = {
     favorite: (f) => [
       [
         {
-          text: "🔗 Url",
+          text: '🔗 Url',
           url: f.url,
         },
         {
-          text: "🗑",
+          text: '🗑',
           callback_data: JSON.stringify({
             type: callBackQueryType.RM_FAVORITE_T,
             animeId: f.id,
@@ -21,71 +21,98 @@ module.exports = {
     feedbacks: () => [
       [
         {
-          text: "😩",
+          text: '😩',
           callback_data: JSON.stringify({
             type: callBackQueryType.FEEDBACK_T,
-            value: "😩",
+            value: '😩',
           }),
         },
         {
-          text: "😐",
+          text: '😐',
           callback_data: JSON.stringify({
             type: callBackQueryType.FEEDBACK_T,
-            value: "😐",
+            value: '😐',
           }),
         },
         {
-          text: "🤩",
+          text: '🤩',
           callback_data: JSON.stringify({
             type: callBackQueryType.FEEDBACK_T,
-            value: "🤩",
+            value: '🤩',
           }),
         },
       ],
     ],
-    showMore: (url, id, favorite) => {
+    showMore: (url, id, favorite, current, subtype) => {
       return [
         [
-          { text: "🔗 Url", url },
+          { text: '🔗 Url', url },
           {
             text: favorite,
             callback_data: JSON.stringify({
               type: callBackQueryType.FAVORITE_T,
-              animeId: id,
-              value: favorite,
+              data: `${id}-${current}-${subtype}-${favorite}`,
             }),
           },
         ],
         [
           {
-            text: "⬇️ More",
+            text: 'More',
             callback_data: JSON.stringify({
               type: callBackQueryType.SHOW_MORE_T,
-              animeId: id,
+              data: `${id}-${current}-${subtype}`,
             }),
           },
         ],
+        typeof current === 'number' && !isNaN(current)
+          ? [
+              {
+                text: '<',
+                callback_data: JSON.stringify({
+                  type: 'pagination',
+                  data: `${current > 0 ? current - 1 : current}-${subtype}`,
+                }),
+              },
+              {
+                text: '<<',
+                callback_data: JSON.stringify({
+                  type: 'pagination',
+                  data: `0-${subtype}`,
+                }),
+              },
+              {
+                text: `${current + 1}`,
+                callback_data: JSON.stringify({
+                  type: 'pagination',
+                  data: `${current}-${subtype}`,
+                }),
+              },
+              {
+                text: '>>',
+                callback_data: JSON.stringify({
+                  type: 'pagination',
+                  data: `49-${subtype}`,
+                }),
+              },
+              {
+                text: '>',
+                callback_data: JSON.stringify({
+                  type: 'pagination',
+                  data: `${current < 49 ? current + 1 : 49}-${subtype}`,
+                }),
+              },
+            ]
+          : [],
       ];
     },
-    showLess: (url, id, favorite) => {
+    showLess: (id, current, subtype) => {
       return [
         [
-          { text: "🔗 Url", url },
           {
-            text: favorite,
-            callback_data: JSON.stringify({
-              type: callBackQueryType.FAVORITE_T,
-              animeId: id,
-              value: favorite,
-            }),
-          },
-        ],
-        [
-          {
-            text: "⬆️ Less",
+            text: 'Less',
             callback_data: JSON.stringify({
               type: callBackQueryType.SHOW_LESS_T,
-              animeId: id,
+              data: `${id}-${current}-${subtype}`,
             }),
           },
         ],
@@ -94,17 +121,17 @@ module.exports = {
     stop: [
       [
         {
-          text: "Yes",
+          text: 'Yes',
           callback_data: JSON.stringify({
             type: callBackQueryType.CONFIRM_STOP_T,
-            value: "Yes",
+            value: 'Yes',
           }),
         },
         {
-          text: "No",
+          text: 'No',
           callback_data: JSON.stringify({
             type: callBackQueryType.CONFIRM_STOP_T,
-            value: "No",
+            value: 'No',
           }),
         },
       ],

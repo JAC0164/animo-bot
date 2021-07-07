@@ -1,4 +1,4 @@
-const UserSchema = require("../models/user.model");
+const UserSchema = require('../models/user.model');
 
 /**
  * Favorite
@@ -14,7 +14,8 @@ class Favorite {
     const chatId = query.message.chat.id;
     const user = await UserSchema.findOne({ chatId });
     if (user) {
-      const isFavorite = user.favorites.includes(favorite.id);
+      const isFavorite =
+        user.favorites.filter((f) => parseInt(favorite.id) === f.id).length > 0;
       if (!isFavorite) {
         user.favorites.push(favorite);
         await UserSchema.updateOne({ chatId }, { favorites: user.favorites });
@@ -37,7 +38,7 @@ class Favorite {
   static async deleteFavorite(chatId, animeId) {
     const user = await UserSchema.findOne({ chatId });
     if (user) {
-      const newFavorites = user.favorites.filter((f) => f.id !== animeId);
+      const newFavorites = user.favorites.filter((f) => f.id !== parseInt(animeId));
       await UserSchema.updateOne({ chatId }, { favorites: newFavorites });
     }
   }
@@ -63,7 +64,7 @@ class Favorite {
    */
   static async isFavorite(chatId, animeId) {
     const user = await UserSchema.findOne({ chatId });
-    if (user) return user.favorites.filter((f) => f.id === animeId).length === 1;
+    if (user) return user.favorites.filter((f) => f.id === parseInt(animeId)).length === 1;
     else return false;
   }
 }
