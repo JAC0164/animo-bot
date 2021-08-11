@@ -1,0 +1,107 @@
+[33mcommit c926081ea7eef0ac2a736cc85616a1f26f543630[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Wed Jul 7 19:51:06 2021 +0000
+
+    fix: :bug: remove parse mode of forwared post
+
+[33mcommit 8c94187e7bf3c7f5a9a4ba7634ddc099552ffe9a[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Wed Jul 7 02:30:28 2021 +0000
+
+    remove test.js
+
+[33mcommit 5a69c98a16eb3e86a035e60777ebc6e3c8a4cce7[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Wed Jul 7 02:29:02 2021 +0000
+
+    add animo channel
+
+[33mcommit 2abc8a576733bff91e3e5a4ab0c3ddfe36575949[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Thu May 27 01:25:58 2021 +0000
+
+    update src/index.js
+
+[33mcommit 39790f855736506b6916c6de39816af09e4f21ce[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Thu May 27 01:19:41 2021 +0000
+
+    update src/index.js
+
+[33mcommit 74a647e53ab423bed5bd96cb4ae7ce7d9e26bb2b[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Thu May 27 01:07:36 2021 +0000
+
+    update src/index.js
+
+[33mcommit b95143b5d4fb09e2c48021675f643de5b8ca2c95[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Thu May 27 00:58:14 2021 +0000
+
+    fix bug
+
+[33mcommit 6cfbe2f3e8709855ebff03e425f253195e70bf34[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Thu May 27 00:50:08 2021 +0000
+
+    add home page
+
+[33mcommit b311b06ba3da87679b38df3699c1529a07698497[m[33m ([m[1;32mb311b06ba3da87679b38df3699c1529a07698497[m[33m)[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Sat May 22 18:31:36 2021 +0000
+
+    update src/index.js
+
+[33mcommit 6cab026bf8b7018792eac42d5a7786078dd3fc37[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Fri May 21 23:32:19 2021 +0000
+
+    update README.md and const.js
+
+[33mcommit 57a55de2e7207e3fd1dd14a12a7b79e62c514c5c[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Fri May 21 23:04:08 2021 +0000
+
+    update Notify.js
+
+[33mcommit cddf53a0fb7488849806601c08d14adf5ce8fca3[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Mon May 17 00:24:22 2021 +0000
+
+    update Send.js
+
+[33mcommit cb2460974a37dcfaa96089293f216e47297bbc2b[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Sun May 16 23:49:26 2021 +0000
+
+    update Send.js
+
+[33mcommit 64df2f8a4c8a8323289a46d0f278b2b835da2d91[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Sun May 16 22:45:37 2021 +0000
+
+    added the Channel class and a wallpaper feature
+
+[33mcommit 78d3958d41848a2fb4ce14e3ac46b61bc3c6caa0[m
+Author: jules jacques coly <67079666+charo164@users.noreply.github.com>
+Date:   Fri May 14 22:51:39 2021 +0000
+
+    Update index.js
+
+[33mcommit cf42e146d5028a624c3518d33de72e1272fa5db2[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Fri May 14 16:44:03 2021 +0000
+
+    update bot
+
+[33mcommit 2ef9773e013169796cb6d43b10fcb61f301c39de[m[33m ([m[1;31mheroku/main[m[33m)[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Sun Apr 11 20:25:09 2021 +0000
+
+    update welcome msg
+
+[33mcommit 965c5738ca37402012d0c52900680d18d22a41b5[m
+Author: charo164 <jjgcoly164@gmail.com>
+Date:   Thu Apr 8 00:58:32 2021 +0000
+
+    first commit
