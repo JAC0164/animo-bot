@@ -209,7 +209,7 @@ bot.on('channel_post', async (msg) => {
   if (msg.chat.title === process.env.WALLPAPER_CHANNEL) {
     Channel.saveAwPost(bot, msg);
   }
-  if (msg.chat.title === process.env.FORWARDED_CHANNEL) {
+  if (msg.chat.title === process.env.FORWARDED_CHANNEL || 'test') {
     Channel.forwardPost(bot, msg).catch((err) => {
       console.log(err);
       bot.sendMessage(msg.chat.id, 'Error !');
