@@ -15,6 +15,7 @@ const subType = cst.subType;
 const message = cst.msg;
 const callBackQueryType = cst.callBackQueryType;
 const FeedbacksSchema = require('./models/feedbacks.model');
+const AnimeModel = require('./models/anime.model');
 
 let bot = new TelegramBot();
 let notify;
@@ -206,6 +207,11 @@ bot.on('channel_post', async (msg) => {
   /**
    * Anime wallpapers
    */
+  if (msg.text === 'Canime') {
+    const anime = (await AnimeModel.find().exec())[0];
+    if (!anime) return bot.sendMessage(msg.chat.id, 'No anime !');
+    return bot.sendMessage(msg.chat.id, `Name : ${anime.name}\nEpisode : ${anime.episode}`);
+  }
   if (msg.chat.title === process.env.WALLPAPER_CHANNEL) {
     Channel.saveAwPost(bot, msg);
   }

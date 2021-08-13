@@ -10,7 +10,7 @@ const preDownload = () => {
 };
 
 const downloader = (fileUrl = '', fileName = '') => {
-  console.log(fileUrl)
+  console.log(fileUrl);
   return new Promise((resolve, reject) => {
     try {
       preDownload();
@@ -57,11 +57,23 @@ const downloader = (fileUrl = '', fileName = '') => {
   });
 };
 
-module.exports.downloader = downloader
+module.exports.downloader = downloader;
 
 module.exports.getFilePath = async (bot, msg) => {
   const filePath = (await bot.getFile(msg?.document?.file_id || msg?.video?.thumb?.file_id))
     .file_path;
   const fileUrl = process.env.FILE_URL + filePath;
   return fileUrl;
+};
+
+module.exports.updateEpisode = async (id, last) => {
+  return await AnimeModel.findByIdAndUpdate(
+    id,
+    { $set: { episode: last + 1 } },
+    { new: true, upsert: true, setDefaultsOnInsert: true },
+    (err, doc) => {
+      if (err) reject(err);
+      resolve(doc);
+    }
+  ).exec();
 };
