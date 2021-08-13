@@ -3,6 +3,7 @@ const https = require('https');
 const path = require('path');
 const file = require('./file_and_data');
 const FOLDER = path.join(process.cwd(), 'temps');
+const AnimeModel = require('../models/anime.model');
 
 const preDownload = () => {
   if (fs.existsSync(FOLDER)) return 1;
