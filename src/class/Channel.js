@@ -66,16 +66,16 @@ class Channel {
     if (!anime) return bot.sendMessage(msg.chat.id, `No anime!`);
     if ('photo' in msg) {
       msgHistory = await bot.sendPhoto(process.env.ANIMO_CHANNEL_ID, msg.photo[0].file_id, {
-        caption: anime.name + `E${anime.episode}`,
+        caption: anime.name,
       });
       return;
     } else if ('video' in msg) {
       msgHistory = await bot.sendVideo(process.env.ANIMO_CHANNEL_ID, msg.video.file_id, {
-        caption: anime.name + `E${anime.episode}`,
+        caption: `${anime.name} E${anime.episode}`,
       });
     } else if ('document' in msg) {
       msgHistory = await bot.sendDocument(process.env.ANIMO_CHANNEL_ID, msg.document.file_id, {
-        caption: anime.name,
+        caption: `${anime.name} E${anime.episode}`,
       });
     }
     await updateEpisode(anime._id, anime.episode);
