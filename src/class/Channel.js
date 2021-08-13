@@ -42,8 +42,8 @@ class Channel {
 
   static async forwardPost(bot, msg) {
     let msgHistory = null;
+    const anime = (await AnimeModel.find().exec())[0];
     if (msg.text && msg.text.startsWith('#newAnime')) {
-      const anime = (await AnimeModel.find().exec())[0];
       if (anime)
         return bot.sendMessage(
           msg.chat.id,
@@ -58,12 +58,12 @@ class Channel {
       return;
     }
     if (msg.text && msg.text.startsWith('#fin')) {
-      const anime = (await AnimeModel.find().exec())[0];
       if (!anime) return;
       await AnimeModel.findByIdAndRemove(anime._id);
       return bot.sendMessage(msg.chat.id, `Merci pour l'anime ${anime.name}`);
     }
     if ('text' in msg) return;
+    if (!anime) return bot.sendMessage(msg.chat.id, `No anime!`);
     if ('photo' in msg) {
       msgHistory = await bot.sendPhoto(process.env.ANIMO_CHANNEL_ID, msg.photo[0].file_id, {
         caption: anime.name + `E${anime.episode}`,
