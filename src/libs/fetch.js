@@ -72,9 +72,6 @@ module.exports.updateEpisode = async (id, last) => {
     id,
     { $set: { episode: last + 1 } },
     { new: true, upsert: true, setDefaultsOnInsert: true },
-    (err, doc) => {
-      if (err) reject(err);
-      resolve(doc);
-    }
+    (err, doc) => {}
   ).exec();
 };
